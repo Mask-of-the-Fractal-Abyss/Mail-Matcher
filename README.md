@@ -8,5 +8,4 @@ My approach to the problem is a radical restructuring of the match making proces
 
 Not only is email a largely textual medium, it is much slower (One match per week aside), and forces users to value the connections they make, and invest energy into them.
 
-There is also a 500 character minimum on each user's description of themselves, and a 200 character limit on their list of interests.
-This forces users to put more detail and description into their profile.
+There is also a 500 character minimum on each user's description of themselves, and a 200 character limit on their list of interests, forcing users to put more detail and description into their profile.
