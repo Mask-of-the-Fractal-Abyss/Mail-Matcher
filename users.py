@@ -68,7 +68,7 @@ def getAvgWordLen(s):
         avg += len(word)
     return avg // len(s.split())
   
-def getAvgSentenseLen(s):
+def getAvgSentenceLen(s):
     avg = 0
     for sentence in s.split('.'):
         avg += len(sentence)
