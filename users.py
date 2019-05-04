@@ -41,11 +41,11 @@ def match(male):
     return female        
 
 def similarity(s1, s2, normalize=True):
-    diff = 0
-    
     diff = abs(getAvgWordLen(s1) - getAvgWordLen(s2))
-    diff = abs(s1.count(',') - s2.count(','))
-    diff = abs(s1.count(' i ') - s2.count(' i '))
+    diff += abs(getAvgSentenceLen(s1) - getAvgSentenceLen(s2))
+    alphabet = 'abcdefghijklmnopqrstuvwxyz.,:;"\'?!'
+    for letter in alphabet:
+      diff += abs(s1.count('letter') - s2.count('letter')) // (len(s1) - len(s2))
     
     similarWords = 0
     s2Chomped = chomp(s2.lower()).split()
@@ -59,7 +59,7 @@ def similarity(s1, s2, normalize=True):
     return diff - 2 * similarWords
         
         
-def chomp(s):
+def chomp(s):  # Took built in chomp method from ruby: removes everything that isn't a letter
     return ''.join(e for e in s if e.isalnum() or e == ' ')
 
 def getAvgWordLen(s):
@@ -67,6 +67,12 @@ def getAvgWordLen(s):
     for word in s.split():
         avg += len(word)
     return avg // len(s.split())
+  
+def getAvgSentenseLen(s):
+    avg = 0
+    for sentence in s.split('.'):
+        avg += len(sentence)
+    return avg // len(s.split('.'))
 
 class userClass:
     users = []
@@ -75,7 +81,7 @@ class userClass:
     
     def __init__(self, bio):
         bio = bio[1:-1]
-##        couldn't unpack the values normally so I had to this verbose bullshit below
+##        couldn't unpack the values normally so I had to this verbose thing below
 
         self.email = bio[0]
         self.password = bio[1]
