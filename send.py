@@ -4,8 +4,9 @@ from email.mime.multipart import MIMEMultipart
 
 port = 587
 smtp_server = 'smtp.gmail.com'
-sender_email = 'XXXXXXXXX'
-password = 'XXXXXXXXX'
+print('Login:')
+sender_email = input('  Email Address: ')
+password = input('  Password: ')
 receiver_email = sender_email
    
 def send(msg='helo', subject='', receivers=[], default=True):
